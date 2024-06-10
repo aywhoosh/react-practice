@@ -1,0 +1,51 @@
+if defining if statement INSIDE render:-
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+const hours = new Date().getHours();
+
+ReactDOM.render(
+    <div>
+    {(hours>=0)? (
+        (hours>=12) ? (
+            (hours>=18) ? (
+                <h1 className="evening">Good Evening!</h1>
+            ): <h1 className="afternoon">Good Afternoon!</h1>
+        ): <h1 className="morning"> Morning!</h1>
+    ): <h1> invalid time detected</h1> 
+    }
+    </div>
+    ,document.getElementById("root"));
+
+
+if defining if statement OUTSIDE render:-
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+const hours = new Date(2019,1,1,19).getHours();
+const customStyle = {
+    color: ""
+};
+
+
+var greeting;
+if (hours>0 && hours<12){
+    greeting = "Good Morning!";
+    customStyle.color = "red"
+} else if(hours>12 && hours<18){
+    greeting = "Good Afternoon!";
+    customStyle.color = "green"
+} else {
+    greeting = "Good Evening!";
+    customStyle.color = "blue"
+}
+
+ReactDOM.render(
+    <div>
+        <h1 className="heading" style={customStyle}>{greeting}</h1>
+    </div>
+    
+    
+    ,document.getElementById("root"));

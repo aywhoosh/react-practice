@@ -1,0 +1,20 @@
+import React, {useState} from "react";
+
+function Time () {
+    const [time,setTime] = useState(currentTime())
+
+    function currentTime() {
+        let time = new Date().toLocaleTimeString();
+        return time;
+    }
+
+    
+    
+    function updateTime() {
+        setTime(currentTime());
+    }
+
+    return {time,updateTime};
+}
+
+export default Time;

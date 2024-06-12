@@ -1,0 +1,24 @@
+import React, {useState} from "react";
+import Time from "./Time";
+
+function App() {
+  const {time, updateTime} = Time();
+  const [displayTime, setDisplayTime] = useState(new Date().toLocaleTimeString())
+
+  function handleGetTime() {
+    updateTime();
+    setDisplayTime(time);
+  }
+  setInterval(handleGetTime,1000);
+  
+  return (
+    <div className="container">
+      <h1>
+      {displayTime}
+      </h1>
+      <button onClick={handleGetTime}>Get Time</button>
+    </div>
+  );
+}
+
+export default App;

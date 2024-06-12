@@ -1,0 +1,27 @@
+import React, {useState} from "react";
+
+function App() {
+
+  const [headingText, setHeading] = useState("Hello");
+  const [style, setStyle] = useState({});
+
+  function handleClick() {
+    setHeading("Submitted!");
+  };
+  function changeBG1() {
+    setStyle({backgroundColor: 'black'});
+  };
+  function changeBG2() {
+    setStyle({backgroundColor: 'white'});
+  };
+
+  return (
+    <div className="container">
+      <h1>{headingText}</h1>
+      <input type="text" placeholder="What's your name?" />
+      <button style={style}  onMouseEnter={changeBG1} onMouseLeave={changeBG2}>Submit</button>
+    </div>
+  );
+}
+
+export default App;

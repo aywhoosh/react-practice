@@ -1,0 +1,12 @@
+function currentTime() {
+        const d = new Date();
+        const [hour,minute,second] = [d.getHours(),d.getMinutes(),d.getSeconds()]
+        
+        const formattedHour   = hour.toString().padStart(2,"0");
+        const formattedMinute = minute.toString().padStart(2,"0");
+        const formattedSecond = second.toString().padStart(2,"0");
+
+        const formattedTime = `${formattedHour}:${formattedMinute}:${formattedSecond}`;
+        
+        return formattedTime;
+        }
